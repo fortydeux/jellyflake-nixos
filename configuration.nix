@@ -123,6 +123,7 @@
       eval "$(starship init zsh)"
     '';
   };
+  programs.fish.enable = true;
 
   # Environment variables
   environment.sessionVariables = {
@@ -148,7 +149,7 @@
   users.users.fortydeux = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
     packages = with pkgs; [
       firefox
       tree
