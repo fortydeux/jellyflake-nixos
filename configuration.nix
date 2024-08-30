@@ -29,7 +29,7 @@
 
   # Hardware - enables resdistributable firmware for Raspberry Pi and adds OpenGL packages for transcoding
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl = {
+  hardware.graphics = {
   	enable = true; 
   	extraPackages = with pkgs; [
   		vaapiVdpau
@@ -114,16 +114,12 @@
   services.xserver.desktopManager.lxqt.enable = true;
 
   # Shell - ZSH setup
-  programs.zsh = {
-  	enable = true;
-  	autosuggestions.enable = true;
-    enableCompletion = true;
-    shellInit = ''
-      eval "$(zoxide init zsh)"
-      eval "$(starship init zsh)"
-    '';
-  };
+  programs.zsh.enable = true;
   programs.fish.enable = true;
+
+  # Optimise nix storage
+  nix.optimise.automatic = true;
+  # nix.settings.auto-optimise-store = true;
 
   # Environment variables
   environment.sessionVariables = {
@@ -169,17 +165,10 @@
     gh
     helix
     ranger
+    nnn
     micro
     alacritty
-
-    # Shell tools
-    starship
-    lsd
-    bat
-    gnused
-    gnugrep
-    zoxide
-
+    
     # Jellyfin
     jellyfin
     jellyfin-web
@@ -212,6 +201,7 @@
   services.jellyfin = {
   	enable = true;
   	openFirewall = true;
+    group = "syncthing";
   };
 
   # Audiobookshelf
