@@ -109,10 +109,14 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  # Enables LXQt as Desktop Manager
-  services.xserver.desktopManager.lxqt.enable = true;
-
+  services.xserver = {
+    enable = true;
+    displayManager.startx.enable = true;
+    displayManager.lightdm.enable = false;
+    desktopManager.lxqt.enable = true;
+  };
+  services.displayManager.defaultSession = "none";
+  
   # Shell - ZSH setup
   programs.zsh.enable = true;
   programs.fish.enable = true;
