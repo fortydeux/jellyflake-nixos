@@ -2,10 +2,11 @@
   description = "Jellyfin Audiobookshelf Server Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
   };
 
-  outputs = { self, nixpkgs }: 
+  outputs = { self, determinate, nixpkgs }@inputs: 
     let 
       lib = nixpkgs.lib;
       system = "aarch64-linux";
@@ -17,6 +18,7 @@
     			inherit system;
     			modules = [
     				./configuration.nix
+            determinate.nixosModules.default
     			];
     		};
     	};
