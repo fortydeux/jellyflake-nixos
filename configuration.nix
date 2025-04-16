@@ -160,18 +160,20 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # General tools
-    neovim 
-    wget
-    ripgrep
+    alacritty
     duf
     fd
     git
     gh
     helix
-    ranger
+    neovim 
     nnn
     micro
-    alacritty
+    ranger
+    ripgrep
+    wget
+    yazi
+    zellij
     
     # Jellyfin
     jellyfin
