@@ -2,8 +2,8 @@
   description = "Jellyfin Audiobookshelf Server Flake";
 
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2505";
   };
 
   outputs = { self, determinate, nixpkgs }@inputs: 
