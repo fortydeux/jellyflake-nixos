@@ -4,9 +4,10 @@
   inputs = {
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2505";
+    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
   };
 
-  outputs = { self, determinate, nixpkgs }@inputs: 
+  outputs = { self, determinate, nixpkgs, nixpkgs-unstable }@inputs: 
     let 
       lib = nixpkgs.lib;
       system = "aarch64-linux";
@@ -20,6 +21,9 @@
     				./configuration.nix
             determinate.nixosModules.default
     			];
+          specialArgs = {
+            unstablePkgs = nixpkgs-unstable.legacyPackages.${system};
+          };
     		};
     	};
     };
