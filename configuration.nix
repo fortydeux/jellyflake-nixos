@@ -206,6 +206,7 @@
   # Jellyfin
   services.jellyfin = {
   	enable = true;
+  	package = unstablePkgs.jellyfin;
   	openFirewall = true;
     group = "syncthing";
   };
