@@ -148,7 +148,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fortydeux = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "syncthing"]; # Enable ‘sudo’ for the user.
     shell = pkgs.bash;
     packages = with pkgs; [
       firefox
