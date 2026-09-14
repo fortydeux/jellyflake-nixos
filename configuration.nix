@@ -32,7 +32,7 @@
   hardware.graphics = {
   	enable = true; 
   	extraPackages = with pkgs; [
-  		vaapiVdpau
+  		libva-vdpau-driver
   		libvdpau-va-gl
   	#	intel-media-driver #Not available for aarm64 architecture
   	#	intel-compute-runtime #Not available for aarm64 architecture  
@@ -206,14 +206,14 @@
   # Jellyfin
   services.jellyfin = {
   	enable = true;
-  	package = unstablePkgs.jellyfin;
+  	package = pkgs.jellyfin;
   	openFirewall = true;
     group = "syncthing";
   };
 
   # Audiobookshelf
   services.audiobookshelf = {
-    package = unstablePkgs.audiobookshelf;
+    package = pkgs.audiobookshelf;
   	enable = true;
   	openFirewall = true;
   	port = 8234;
